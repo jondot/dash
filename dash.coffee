@@ -1,8 +1,11 @@
-express = require('express')
+express = require 'express'
 app = express.createServer()
 io  = require('socket.io').listen(app)
+Fs  = require 'fs'
+Path = require 'path'
 
-# on heroku, use $ heroku config:add FORCE_POLLING=10
+
+#on heroku, use $ heroku config:add FORCE_POLLING=10
 if process.env.FORCE_POLLING
   io.configure ()->
     io.set("transports", ["xhr-polling"])
@@ -20,8 +23,23 @@ app.listen(port)
 
 
 
+parsers_path = __dirname+'/parsers'
+parsers = 
+  default:
+    (req)-> JSON.parse(req.param('content'))
+
+for file in Fs.readdirSync(parsers_path)
+  require("#{parsers_path}/#{Path.basename(file, Path.extname(file))}") parsers
+
+
+
 
 app.post '/messages',  (req, res) ->
-  content = req.param('content')
-  io.sockets.emit("message", JSON.parse(content)) if content
+  parser_type = req.param('dash_from') || 'default'
+  msg = parsers[parser_type](req)
+  console.log msg
+  io.sockets.emit("message", msg) if msg
   res.send('')
+
+
+

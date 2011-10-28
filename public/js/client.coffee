@@ -4,7 +4,6 @@ class Message extends Backbone.Model
     thumb: 'images/blank-gravatar.jpg'
     time: 'just now'
     whom: 'someone'
-    state: 'on'
     effect_on: 'tada'
     effect_off: 'fadeOut'
 
