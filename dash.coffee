@@ -1,25 +1,22 @@
 express = require('express')
-sio = require('socket.io')
+app = express.createServer()
+io  = require('socket.io').listen(app)
 
 # on heroku, use $ heroku config:add FORCE_POLLING=10
 if process.env.FORCE_POLLING
-  sio.configure ()->
-    sio.set("transports", ["xhr-polling"])
-    sio.set("polling duration", process.env.FORCE_POLLING)
+  io.configure ()->
+    io.set("transports", ["xhr-polling"])
+    io.set("polling duration", process.env.FORCE_POLLING)
 
 
-app = express.createServer()
 app.configure ()->
   app.use express.static(__dirname + '/public')
   app.use express.bodyParser()
 
 
 port = process.env.PORT || 3000
-
-
-
 app.listen(port)
-io  = sio.listen(app)
+
 
 
 
