@@ -1,0 +1,57 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+  
+  <script id="message-template" type="text/template">
+      <div class="body">
+        <%= body %>
+      </div>
+      <div class="footer">
+        <div class="by-text">
+          <div class="time">
+            <%= time %>
+          </div>
+          <div class="whom">
+            <%= whom %>
+          </div>
+        </div>
+          <div class="by-thumb">
+            <img height="48" width="48" src="<%= thumb %>">
+          </div>
+      </div>
+  </script>
+ 
+  <div id="main">
+   
+  </div>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>
+  <script type="text/javascript" src="js/libs/underscore-min.js"></script>
+  <script type="text/javascript" src="js/libs/backbone.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="js/client.js"></script>
+  <script type="text/javascript">
+    var socket = io.connect('http://localhost');
+    socket.on('message', function (data) {
+      console.log(data);
+      dash.next(new Message(data)); 
+    });
+  </script> 
+
+</body>
+</html>
