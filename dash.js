@@ -1,5 +1,5 @@
 (function() {
-  var app, express, io;
+  var app, express, io, port;
   express = require('express');
   app = express.createServer();
   io = require('socket.io').listen(app);
@@ -7,7 +7,8 @@
     app.use(express.static(__dirname + '/public'));
     return app.use(express.bodyParser());
   });
-  app.listen(80);
+  port = process.env.PORT || 3000;
+  app.listen(port);
   app.post('/messages', function(req, res) {
     var content;
     content = req.param('content');
