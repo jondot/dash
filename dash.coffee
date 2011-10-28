@@ -8,7 +8,7 @@ app.configure ()->
   app.use express.bodyParser()
 
 
-app.listen(4000)
+app.listen(80)
 
 
 

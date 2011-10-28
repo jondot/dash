@@ -7,7 +7,7 @@
     app.use(express.static(__dirname + '/public'));
     return app.use(express.bodyParser());
   });
-  app.listen(4000);
+  app.listen(80);
   app.post('/messages', function(req, res) {
     var content;
     content = req.param('content');
