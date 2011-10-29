@@ -34,6 +34,12 @@ Submit new messages via Dash's RESTful interface to a parameter named
 
     POST http://your-dash-instance.com/messages
 
+Here is a quick example with `curl`:
+
+    curl -d "content={\"body\": \"I have had it with these motherf*ckin’ snakes on this motherf*ckin’ plane!\", \"effect_on\":\"bounceInDown\", \"effect_off\":\"fadeOutDownBig\"}" http://localhost:3000/messages
+
+
+
 Example content:
 
     {
