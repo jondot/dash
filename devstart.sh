@@ -1,2 +1,2 @@
-coffee --compile --watch *.coffee public/js/*.coffee &
+coffee --compile --watch **/*.coffee &
 node dash

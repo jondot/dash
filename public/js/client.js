@@ -18,7 +18,6 @@
       thumb: 'images/blank-gravatar.jpg',
       time: 'just now',
       whom: 'someone',
-      state: 'on',
       effect_on: 'tada',
       effect_off: 'fadeOut'
     };
@@ -56,7 +55,7 @@
       return this.model.bind('off', this.render_off);
     };
     MessageView.prototype.remove_on_end = function() {
-      return $(this.el).bind("animationend", function() {
+      return $(this.el).bind("animationend webkitAnimationEnd", function() {
         return $(this).remove();
       });
     };

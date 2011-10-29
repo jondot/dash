@@ -27,7 +27,7 @@ class MessageView extends Backbone.View
     @model.bind('off', @render_off)
 
   remove_on_end:()->
-    $(@el).bind "animationend", ()->
+    $(@el).bind "animationend webkitAnimationEnd", ()->
       $(@).remove()
 
   render_off:()=>
