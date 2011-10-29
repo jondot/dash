@@ -11,17 +11,17 @@ Dash is a simple web application for dashboard like notifications.
 Dash is a node.js application, also built to be compatible with Heroku. Push
 it to a free Heroku instance in a minute:
 
-  $ git clone https://github.com/jondot/dash
-  $ cd dash
-  $ heroku create -s cedar
-  $ git push heroku master
+    $ git clone https://github.com/jondot/dash
+    $ cd dash
+    $ heroku create -s cedar
+    $ git push heroku master
 
 If you want it on your local servers, do this
 
-  $ git clone https://github.com/jondot/dash
-  $ cd dash
-  $ npm install
-  $ node dash
+    $ git clone https://github.com/jondot/dash
+    $ cd dash
+    $ npm install
+    $ node dash
 
 
 ## Showing Messages
@@ -72,7 +72,7 @@ sample github parser is included in `parsers/github.coffee`.
 So now, in order to use Dash for your Github POST hooks, you need to
 specify this kind of URL:
 
-  http://your-dash-instance.com/messages?dash_from=github
+    http://your-dash-instance.com/messages?dash_from=github
 
 And it will load the github parser on any POST request, so that it could
 parse the github-specific `payload` parameter into the Dash specific
