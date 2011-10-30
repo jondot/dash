@@ -1,6 +1,8 @@
 # Dash
 Dash is a simple web application for dashboard like notifications. 
 
+![](https://github.com/jondot/dash/raw/master/docs/dash.png) 
+
 * Commit messages via github web hooks for your developers.
 * Announcements for your managers
 * Headlines for your visitors
